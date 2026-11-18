@@ -12,10 +12,9 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": ".",
-    "baseUrl": ".",
     "paths": {
-      "#shared": ["../packages/shared/src/index.ts"],
-      "#shared/*": ["../packages/shared/src/*"]
+      "#shared": ["../../packages/shared/src/index.ts"],
+      "#shared/*": ["../../packages/shared/src/*"]
     }
   },
   "include": [
