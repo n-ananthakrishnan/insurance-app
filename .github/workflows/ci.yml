@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - name: Locale parity check
+        run: npm run locale:check
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test:unit
+
+  api:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sample_insurance_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Setup API env
+        run: |
+          cp .env.example.api apps/api/.env
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/sample_insurance_test?sslmode=disable" >> apps/api/.env
+          echo "JWT_SECRET=test-jwt-secret-not-for-prod-please" >> apps/api/.env
+          echo "BCRYPT_SALT_ROUNDS=4" >> apps/api/.env
+          echo "R2_BUCKET=unused" >> apps/api/.env
+          echo "R2_ACCOUNT_ID=unused" >> apps/api/.env
+          echo "R2_ACCESS_KEY_ID=unused" >> apps/api/.env
+          echo "R2_SECRET_ACCESS_KEY=unused" >> apps/api/.env
+          echo "R2_ENDPOINT=http://unused" >> apps/api/.env
+          echo "CORS_ORIGINS=http://localhost:3000" >> apps/api/.env
+          echo "ENABLE_RATE_LIMIT=false" >> apps/api/.env
+          echo "PORT=3001" >> apps/api/.env
+          echo "NODE_ENV=test" >> apps/api/.env
+      - name: Generate Prisma client
+        working-directory: apps/api
+        run: npx prisma generate
+      - name: Run migrations
+        working-directory: apps/api
+        run: npx prisma migrate deploy
+      - name: Seed (minimal for API tests)
+        working-directory: apps/api
+        run: npx tsx prisma/seed.ts
+      - name: Run API integration tests
+        working-directory: apps/api
+        run: npm run test:api
+        env:
+          PORT: 3001
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run web component tests
+        working-directory: apps/web
+        run: npm run test:web
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: [lint, unit, api]
+    # Run e2e on main pushes only (against a staging deployment) or when
+    # a dedicated e2e workflow is triggered. For PRs, we run a lighter smoke.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright browsers
+        working-directory: apps/web
+        run: npx playwright install --with-deps
+      - name: Run e2e tests
+        working-directory: apps/web
+        run: npm run test:e2e
+        env:
+          # Point e2e at the deployed staging backend/frontend.
+          BASE_URL: https://staging-app.example.com
+          API_BASE_URL: https://staging-api.example.com/api/v1

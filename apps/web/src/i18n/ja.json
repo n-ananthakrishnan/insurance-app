@@ -1,0 +1,514 @@
+{
+  "brand": {
+    "short": "サンプル保険",
+    "full": "サンプル保険ジャパン",
+    "tagline": "暮らしに寄り添う保険"
+  },
+  "nav": {
+    "home": "ホーム",
+    "products": "商品",
+    "claims": "請求",
+    "news": "お知らせ",
+    "faq": "よくある質問",
+    "contact": "お問い合わせ",
+    "login": "ログイン",
+    "register": "新規登録",
+    "customerArea": "マイページ",
+    "admin": "管理画面",
+    "logout": "ログアウト",
+    "language": "言語",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "languageToggle": {
+    "label": "言語",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "home": {
+    "heroTitle": "暮らしに合う保険。",
+    "heroSubtitle": "自動車・火災・医療・賠償責任まで、毎日の安心をシンプルなプランでご提案します。",
+    "getStarted": "商品を見る",
+    "reportAccident": "事故を報告する",
+    "categoriesTitle": "保険のカテゴリ",
+    "categoriesSubtitle": "ライフステージに合った補償を選びましょう。",
+    "categories": {
+      "auto": "日常の運転をまもる自動車保険。",
+      "fire": "住ままを火災・自然災害からまもる火災保険。",
+      "medical": "入院・手術に備える医療保険。",
+      "liability": "他人への責任をまもる賠償責任保険。"
+    },
+    "productsTitle": "人気商品",
+    "productsSubtitle": "わかりやすいプランで、必要な補償を。",
+    "newsTitle": "お知らせ",
+    "newsSubtitle": "最新の 소식・ご案内・重要なお知らせ。",
+    "faqTitle": "よくある質問",
+    "faqSubtitle": "よくある質問への回答。",
+    "faqShort": "よくある質問",
+    "ctaTitle": "大切なものをまもるはじめの一歩。",
+    "ctaSubtitle": "数分で登録。複雑な手続きは不要です。",
+    "ctaContact": "お問い合わせ",
+    "ctaGetStarted": "アカウントを作成",
+    "trustSecurity": "セキュリティ対応",
+    "trustPrivacy": "プライバシー優先",
+    "trustSupport": "24時間サポート"
+  },
+  "footer": {
+    "tagline": "暮らしに寄り添う保険。",
+    "company": "サンプル保険ジャパン 運営事務局",
+    "address": "〒100-0001 東京都千代田区千代田1-1-1",
+    "phone": "0120-000-000",
+    "email": "support@samplese.japan",
+    "hours": "平日 9:00–17:00",
+    "nav": {
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約",
+      "company": "会社情報",
+      "sitemap": "サイトマップ"
+    },
+    "copyright": "© サンプル保険ジャパン 無断転載禁止。"
+  },
+  "products": {
+    "title": "保険商品",
+    "subtitle": "プランを比較して、あなたに合う補償を見つけましょう。",
+    "filter": "絞り込む",
+    "allCategories": "すべてのカテゴリ",
+    "noProducts": "商品が見つかりませんでした。",
+    "basePremium": "口座から",
+    "perMonth": "月あたり",
+    "keyFeatures": "主な特徴",
+    "coverage": "補償内容",
+    "howItWorks": "申込みの流れ",
+    "step1": "商品を選ぶ",
+    "step2": "補償内容を決める",
+    "step3": "申し込みを完了する",
+    "applyNow": "今すぐ申し込む",
+    "relatedProducts": "関連商品"
+  },
+  "claims": {
+    "title": "請求",
+    "subtitle": "事故を報告したり、請求の進み具合を確認したりできます。",
+    "emptyTitle": "請求はまだありません",
+    "emptyDescription": "事故報告と請求の更新はこちらに表示されます。",
+    "relatedPolicy": "契約",
+    "viewDetails": "詳細を見る",
+    "edit": "請求を編集",
+    "status": {
+      "DRAFT": "下書き",
+      "RECEIVED": "受付済み",
+      "UNDER_REVIEW": "審査中",
+      "MORE_DOCUMENTS_NEEDED": "追加情報が必要",
+      "APPROVED": "承認済み",
+      "PAID": "支払済み",
+      "REJECTED": "否認"
+    },
+    "type": {
+      "AUTO": "自動車事故",
+      "FIRE_EARTHQUAKE": "火災・地震",
+      "TRAVEL": "旅行",
+      "MEDICAL": "医療",
+      "LIABILITY": "賠償責任",
+      "OTHER": "その他"
+    },
+    "newClaim": "新規請求",
+    "myClaims": "マイ請求",
+    "status": "進捗",
+    "received": "受付済み",
+    "pendingDocuments": "書類確認中",
+    "underReview": "審査中",
+    "moreDocumentsNeeded": "追加書類必要",
+    "approved": "承認済み",
+    "paid": "支払済み",
+    "rejected": "却下",
+    "type": "事故の種類",
+    "typeAuto": "自動車事故",
+    "typeFire": "火災・災害",
+    "typeMedical": "医療・けが",
+    "typeLiability": "他人への責任",
+    "dateOfIncident": "事故日",
+    "description": "どのようなことがあったか",
+    "descriptionJa": "内容（日本語）",
+    "descriptionEn": "内容（英語）",
+    "notes": "追加メモ",
+    "injuredPeople": "負傷者の数",
+    "damageEstimate": "被害額の見積もり",
+    "policeReported": "警察へ届け出た",
+    "otherParty": "相手方",
+    "otherPartyName": "相手方の名前",
+    "otherPartyPhone": "相手方の電話番号",
+    "otherPartyPolicyNumber": "相手方の保険契約番号",
+    "location": "場所",
+    "locationJa": "場所（日本語）",
+    "locationEn": "場所（英語）",
+    "documents": "書類",
+    "uploadDocument": "書類をアップロード",
+    "uploadEvidence": "証拠写真",
+    "uploadSupporting": "補足書類",
+    "uploadMedical": "医療記録",
+    "uploadOther": "その他の書類",
+    "viewDocuments": "アップロード済みの書類を見る",
+    "downloadDocument": "ダウンロード",
+    "deleteDocument": "削除",
+    "noDocuments": "まだ書類をアップロードしていません。",
+    "uploadHint": "写真・医療記録・警察の届出などをアップロードできます。",
+    "progress": {
+      "title": "請求の進捗",
+      "steps": {
+        "received": "受付済み",
+        "pendingDocuments": "書類確認中",
+        "underReview": "審査中",
+        "moreDocumentsNeeded": "追加書類必要",
+        "approved": "承認済み",
+        "paid": "支払済み",
+        "rejected": "却下"
+      }
+    },
+    "documentsProgress": " 서류를 업로드して、請求を進めましょう。",
+    "reviewProgress": "スタッフが請求を確認しています。",
+    "estimatedPayout": "見込支払額",
+    "payoutDate": "支払日",
+    "statusHistory": "進捗履歴",
+    "comments": "コメント",
+    "noComments": "コメントはまだありません。",
+    "submit": "請求を送信",
+    "updateClaim": "請求を更新",
+    "returnToClaims": "請求一覧に戻る"
+  },
+  "claimStatus": {
+    "received": {
+      "ja": "受付済み",
+      "en": "Received"
+    },
+    "pendingDocuments": {
+      "ja": "書類確認中",
+      "en": "Pending documents"
+    },
+    "underReview": {
+      "ja": "審査中",
+      "en": "Under review"
+    },
+    "moreDocumentsNeeded": {
+      "ja": "追加書類必要",
+      "en": "More documents needed"
+    },
+    "approved": {
+      "ja": "承認済み",
+      "en": "Approved"
+    },
+    "paid": {
+      "ja": "支払済み",
+      "en": "Paid"
+    },
+    "rejected": {
+      "ja": "却下",
+      "en": "Rejected"
+    }
+  },
+  "customer": {
+    "title": "マイページ",
+    "subtitle": "契約・請求・プロフィールを管理できます。",
+    "welcome": "おかえりなさい、{name}さん",
+    "dashboardLabel": "概要",
+    "billing": "保険料",
+    "supportLink": "お困りですか？お問い合わせ",
+    "dashboardIntro": "契約内容と最近の手続きを確認できます。",
+    "activePolicies": "有効な契約",
+    "openClaims": "進行中の請求",
+    "reportAccident": "事故を報告",
+    "browseProducts": "保険商品を見る",
+    "viewAll": "すべて見る",
+    "noRecentClaims": "請求はまだありません。事故があった場合はこちらから報告できます。",
+    "noRecentPolicies": "このアカウントに登録された契約はありません。",
+    "recentClaims": {
+      "title": "最近の請求",
+      "subtitle": "事故報告の最新状況を確認できます。"
+    },
+    "recentPolicies": {
+      "title": "ご契約内容",
+      "subtitle": "現在の保険契約を確認できます。"
+    },
+    "profile": "プロフィール",
+    "policies": "契約",
+    "claims": "請求",
+    "notifications": "通知",
+    "settings": "設定",
+    "editProfile": "プロフィールを編集",
+    "saveProfile": "変更を保存",
+    "saved": "保存しました",
+    "noPolicies": "契約はまだありません。",
+    "noClaims": "請求はまだありません。",
+    "noNotifications": "通知はありません。",
+    "markAllRead": "すべて既読にする",
+    "unread": "未読",
+    "policiesTitle": "契約",
+    "claimsTitle": "請求",
+    "policyNumber": "契約番号",
+    "status": "状態",
+    "startDate": "開始日",
+    "endDate": "終了日",
+    "premium": "保険料",
+    "viewDetails": "詳細を見る",
+    "cancelPolicy": "契約を中止する"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "管理ダッシュボード",
+      "subtitle": "事業の概要。",
+      "claimsInQueue": "請求（処理待ち）",
+      "activePolicies": "有効な契約",
+      "newCustomers": "今月の新規顧客",
+      "pendingDocuments": "保留中の書類"
+    },
+    "claimsQueue": {
+      "title": "請求キュー",
+      "subtitle": "確認を待っている請求。",
+      "claimNumber": "請求番号",
+      "customer": "顧客",
+      "status": "状態",
+      "documents": "書類",
+      "actions": "操作",
+      "underReview": "審査中",
+      "moreDocsNeeded": "追加書類必要",
+      "approve": "承認",
+      "reject": "却下",
+      "requestDocs": "書類を要求",
+      "approved": "承認済み",
+      "rejected": "却下"
+    },
+    "customers": {
+      "title": "顧客",
+      "subtitle": "顧客アカウントを管理。",
+      "search": "顧客を検索",
+      "noResults": "顧客が見つかりませんでした。",
+      "addNote": "メモを追加",
+      "notes": "メモ",
+      "privateNote": "プライベートメモ",
+      "saveNote": "メモを保存",
+      "deleteNote": "メモを削除"
+    },
+    "products": {
+      "title": "商品",
+      "subtitle": "保険商品を管理。",
+      "newProduct": "新規商品",
+      "editProduct": "商品を編集",
+      "status": "状態",
+      "enabled": "有効",
+      "disabled": "無効"
+    },
+    "news": {
+      "title": "お知らせ",
+      "subtitle": "お知らせ記事を管理。",
+      "newArticle": "新規記事",
+      "editArticle": "記事を編集"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "subtitle": "よくある質問を管理。",
+      "newFaq": "新規FAQ"
+    },
+    "auditLog": {
+      "title": "監査ログ",
+      "subtitle": "最近の管理者操作。",
+      "action": "操作",
+      "resource": "リソース",
+      "actor": "実行者",
+      "time": "日時"
+    },
+    "notifications": {
+      "title": "通知",
+      "subtitle": "最近の通知。",
+      "markAllRead": "すべて既読にする"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "ログイン",
+      "subtitle": "おかえりなさい。アカウントにサインインしてください。",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "あなた@例.jp",
+      "passwordLabel": "パスワード",
+      "passwordPlaceholder": "パスワード",
+      "submit": "ログイン",
+      "forgotPassword": "パスワードをお忘れですか？",
+      "errorInvalid": "メールアドレスまたはパスワードが正しくありません。",
+      "errorLocked": "アカウントは一時的にロックされています。しばらくしてからもう一度お試しください。",
+      "errorSession": "セッションの有効期限が切れました。もう一度ログインしてください。"
+    },
+    "register": {
+      "title": "アカウントを作成",
+      "subtitle": "数分でサンプル保険ジャパンに参加できます。",
+      "nameJaLabel": "氏名（日本語）",
+      "nameEnLabel": "氏名（英語）",
+      "furiganaLabel": "ふりがな（任意）",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "あなた@例.jp",
+      "passwordLabel": "パスワード",
+      "passwordPlaceholder": "8文字以上、大文字1つ、数字1つ",
+      "confirmPasswordLabel": "パスワード（確認）",
+      "phoneLabel": "電話番号（任意）",
+      "postalCodeLabel": "郵便番号（任意）",
+      "addressLabel": "住所（任意）",
+      "prefectureLabel": "都道府県（任意）",
+      "cityLabel": "市区町村（任意）",
+      "addressLineLabel": "住所詳細（任意）",
+      "consentTerms": "利用規約に同意します",
+      "consentPrivacy": "プライバシーポリシーに同意します",
+      "submit": "アカウントを作成",
+      "successTitle": "アカウントを作成しました",
+      "successMessage": "メールアドレスを確認してください。",
+      "backToLogin": "ログイン画面に戻る"
+    },
+    "forgot": {
+      "title": "パスワードをリセット",
+      "subtitle": "メールアドレスを入力すると、リンクを送信します。",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "あなた@例.jp",
+      "submit": "リセットリンクを送信",
+      "successTitle": "リンクを送信しました",
+      "successMessage": "メール inbox を確認してください。",
+      "backToLogin": "ログイン画面に戻る",
+      "error": "問題が発生しました。もう一度お試しください。"
+    },
+    "reset": {
+      "title": "新しいパスワードを設定",
+      "subtitle": "アカウントの新しいパスワードを選んでください。",
+      "newPasswordLabel": "新しいパスワード",
+      "confirmPasswordLabel": "新しいパスワード（確認）",
+      "submit": "新しいパスワードを保存",
+      "successTitle": "パスワードを変更しました",
+      "successMessage": "パスワードが変更されました。ログインできます。",
+      "goToLogin": "ログイン画面へ",
+      "missingTokenTitle": "リンクが見つかりません",
+      "missingTokenMessage": "リセットリンクが見つからないか、有効期限切れです。新しいリンクをリクエストしてください。",
+      "requestNewLink": "新しいリンクをリクエスト",
+      "backToLogin": "ログイン画面に戻る",
+      "networkError": "ネットワークエラーが発生しました。もう一度お試しください。",
+      "genericError": "問題が発生しました。もう一度お試しください。"
+    },
+    "newHere": "サンプル保険ジャパンがはじめてですか？",
+    "registerLink": "アカウントを作成",
+    "loginLink": "ログイン",
+    "alreadyHaveAccount": "すでにアカウントをお持ちですか？",
+    "noAccount": "アカウントをお持ちでない方"
+  },
+  "layout": {
+    "skipToContent": "メインコンテンツへスキップ",
+    "menuOpen": "メニューを開く",
+    "menuClose": "メニューを閉じる"
+  },
+  "shared": {
+    "loading": "読み込み中…",
+    "error": "エラーが発生しました。",
+    "retry": "再試行",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "submit": "送信",
+    "yes": "はい",
+    "no": "いいえ",
+    "search": "検索",
+    "noResults": "結果が見つかりませんでした。",
+    "filter": "絞り込む",
+    "clear": "クリア"
+  },
+  "errors": {
+    "required": "この項目は必須です。",
+    "invalidEmail": "有効なメールアドレスを入力してください。",
+    "passwordTooShort": "パスワードは8文字以上にしてください。",
+    "passwordTooLong": "パスワードが長すぎます。",
+    "passwordNeedsUppercase": "パスワードには大文字を1つ以上含めてください。",
+    "passwordNeedsNumber": "パスワードには数字を1つ以上含めてください。",
+    "passwordMismatch": "パスワードが一致しません。",
+    "invalidPhone": "有効な電話番号を入力してください。",
+    "invalidPostalCode": "有効な郵便番号を入力してください。",
+    "networkError": "ネットワークエラーが発生しました。もう一度お試しください。",
+    "notFound": "ページまたは項目が見つかりませんでした。",
+    "unauthorized": "このページにアクセスするにはログインが必要です。",
+    "forbidden": "このページにアクセスする権限がありません。",
+    "serverError": "サーバーで問題が発生しました。しばらくしてからもう一度お試しください。",
+    "rateLimited": "リクエストが多すぎます。しばらくしてからもう一度お試しください。",
+    "invalidInput": "入力内容に問題があります。表示された項目を確認してください。"
+  },
+  "accident": {
+    "button": "事故を報告",
+    "modalTitle": "事故を報告",
+    "modalSubtitle": "どのようなことがあったか教えてください。手続きをお手伝いします。",
+    "startClaim": "請求を開始",
+    "callUs": "いま電話する: 0120-000-000",
+    "emergency": "緊急時はまず110または119に電話してください。",
+    "close": "閉じる"
+  },
+  "settings": {
+    "title": "アカウント設定",
+    "subtitle": "プロフィール、パスワード、通知の設定を管理します。",
+    "lastSaved": "最終保存:",
+    "tabs": { "profile": "プロフィール", "password": "パスワード", "notifications": "通知" },
+    "profile": {
+      "form": {
+        "title": "プロフィール情報",
+        "description": "連絡先を最新の状態に保ちましょう。",
+        "nameJa": "氏名（日本語）", "nameJaPlaceholder": "日本語で氏名を入力してください",
+        "nameEn": "氏名（英語）", "nameEnPlaceholder": "英語で氏名を入力してください",
+        "phone": "電話番号", "phonePlaceholder": "例: 090-1234-5678",
+        "postalCode": "郵便番号", "postalCodePlaceholder": "例: 100-0001",
+        "addressJa": "住所（日本語）", "addressJaPlaceholder": "日本語で住所を入力してください",
+        "addressEn": "住所（英語）", "addressEnPlaceholder": "英語で住所を入力してください"
+      },
+      "save": "プロフィールを保存", "saving": "保存中…", "savedTitle": "保存しました", "savedDescription": "プロフィール情報を更新しました。", "errorTitle": "保存できませんでした", "errorDescription": "入力内容を確認して、もう一度お試しください。"
+    },
+    "password": {
+      "form": {
+        "title": "パスワードの変更", "description": "他のサービスで使用していない、安全なパスワードを設定してください。",
+        "currentPassword": "現在のパスワード", "currentPasswordPlaceholder": "現在のパスワードを入力してください",
+        "newPassword": "新しいパスワード", "newPasswordPlaceholder": "新しいパスワードを入力してください", "newPasswordDescription": "8文字以上で、大文字・小文字・数字・記号を含めてください。",
+        "confirmNewPassword": "新しいパスワード（確認）", "confirmNewPasswordPlaceholder": "新しいパスワードをもう一度入力してください"
+      },
+      "change": "パスワードを変更", "changing": "変更中…", "changedTitle": "変更しました", "changedDescription": "パスワードを更新しました。", "errorTitle": "変更できませんでした", "errorDescription": "現在のパスワードを確認して、もう一度お試しください。"
+    },
+    "notifications": {
+      "saved": "設定を保存しました", "error": "設定を保存できませんでした", "savedMessage": "通知設定を更新しました。", "errorMessage": "もう一度お試しください。", "disable": "無効", "loading": "保存中…", "save": "設定を保存", "savedStatus": "通知設定を保存しました。",
+      "notificationTypes": {
+        "title": "通知の種類",
+        "claimStatusUpdates": { "label": "保険金請求の更新", "description": "請求の状況が変わったときに通知します。" },
+        "policyReminders": { "label": "契約のお知らせ", "description": "保険契約に関するお知らせを通知します。" },
+        "newsletter": { "label": "ニュースレター", "description": "保険に関するニュースや役立つ情報をお届けします。" },
+        "marketing": { "label": "商品のお知らせ", "description": "商品やサービスに関する情報をお届けします。" }
+      }
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "お問い合わせフォーム",
+      "description": "ご質問やご相談をお送りください。",
+      "name": "お名前",
+      "namePlaceholder": "山田 太郎",
+      "email": "メールアドレス",
+      "emailPlaceholder": "name@example.jp",
+      "subject": "お問い合わせの件名",
+      "subjectPlaceholder": "お問い合わせ内容を入力",
+      "message": "お問い合わせ内容",
+      "messagePlaceholder": "内容をご記入ください（10文字以上）",
+      "phone": "電話番号（任意）",
+      "phonePlaceholder": "090-1234-5678",
+      "policyNumber": "証券番号（任意）",
+      "policyNumberPlaceholder": "証券番号",
+      "claimNumber": "請求番号（任意）",
+      "claimNumberPlaceholder": "請求番号",
+      "consent": "個人情報の取り扱いに同意します",
+      "consentDescription": "お問い合わせへの回答に必要な範囲で情報を利用します。",
+      "privacyNote": "送信前に入力内容をご確認ください。",
+      "emailInstead": "メールで問い合わせる"
+    },
+    "submit": "送信する",
+    "submitting": "送信中…",
+    "sentTitle": "送信しました",
+    "sentDescription": "お問い合わせを受け付けました。",
+    "errorTitle": "送信できませんでした",
+    "errorDescription": "時間をおいて再度お試しください。"
+  }
+}

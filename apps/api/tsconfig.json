@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "#shared": ["../packages/shared/src/index.ts"],
+      "#shared/*": ["../packages/shared/src/*"]
+    }
+  },
+  "include": [
+    "src/index.ts",
+    "src/config.ts",
+    "src/prisma.ts",
+    "src/runtime-routes.ts",
+    "src/routers/auth.ts",
+    "src/middleware/runtime-error-handler.ts"
+  ],
+  "exclude": ["node_modules", "dist", "src/routers", "src/middleware/auth.ts", "src/middleware/error-handler.ts", "src/utils", "tests"]
+}

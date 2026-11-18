@@ -1,0 +1,32 @@
+{
+  "name": "sample-insurance-japan",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sample Insurance Japan (サンプル保険ジャパン) — demo non-life insurance website, bilingual JA+EN, full-stack.",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev:all": "npm run api:dev --prefix apps/api & npm run web:dev --prefix apps/web",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test:unit --workspaces",
+    "test:unit": "npm run test:unit --workspaces",
+    "test:api": "npm run test:api --prefix apps/api",
+    "test:web": "npm run test:web --prefix apps/web",
+    "test:e2e": "npm run test:e2e --prefix apps/web",
+    "locale:check": "npx tsx scripts/check-locale-keys.ts",
+    "smoke:test": "npx tsx scripts/smoke-test.ts",
+    "prepare": "echo 'Monorepo root — no build step here.'"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "tsx": "^4.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

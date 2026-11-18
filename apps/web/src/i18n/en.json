@@ -1,0 +1,514 @@
+{
+  "brand": {
+    "short": "SAMPLE INSURANCE",
+    "full": "SAMPLE INSURANCE JAPAN",
+    "tagline": "Insurance for everyday life."
+  },
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "claims": "Claims",
+    "news": "News",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "login": "Log in",
+    "register": "Sign up",
+    "customerArea": "My account",
+    "admin": "Admin",
+    "logout": "Log out",
+    "language": "Language",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "languageToggle": {
+    "label": "Language",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "home": {
+    "heroTitle": "Insurance that fits your life.",
+    "heroSubtitle": "Auto, fire, medical and liability insurance. Simple, clear, and always there when you need it.",
+    "getStarted": "View products",
+    "reportAccident": "Report an accident",
+    "categoriesTitle": "Insurance categories",
+    "categoriesSubtitle": "Choose the coverage that matches your life stage.",
+    "categories": {
+      "auto": "Car insurance for everyday driving.",
+      "fire": "Fire and natural disaster coverage for your home.",
+      "medical": "Medical and hospitalization protection.",
+      "liability": "liability insurance protects you when others are harmed."
+    },
+    "productsTitle": "Popular products",
+    "productsSubtitle": "Simple plans with clear coverage.",
+    "newsTitle": "Latest news",
+    "newsSubtitle": "Company updates, tips and important notices.",
+    "faqTitle": "Frequently asked questions",
+    "faqSubtitle": "Quick answers to common questions.",
+    "faqShort": "Common questions",
+    "ctaTitle": "Start protecting what matters.",
+    "ctaSubtitle": "Join in a few minutes. No complicated paperwork.",
+    "ctaContact": "Contact us",
+    "ctaGetStarted": "Create an account",
+    "trustSecurity": "Secure data",
+    "trustPrivacy": "Privacy first",
+    "trustSupport": "24-hour support"
+  },
+  "footer": {
+    "tagline": "Insurance for everyday life.",
+    "company": "Sample Insurance Japan 運営事務局",
+    "address": "〒100-0001 東京都千代田区千代田1-1-1",
+    "phone": "0120-000-000",
+    "email": "support@samplese.japan",
+    "hours": "9:00–17:00 (weekdays)",
+    "nav": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "company": "Company",
+      "sitemap": "Site Map"
+    },
+    "copyright": "© SAMPLE INSURANCE JAPAN. All rights reserved."
+  },
+  "products": {
+    "title": "Insurance products",
+    "subtitle": "Compare plans and find the right coverage.",
+    "filter": "Filter",
+    "allCategories": "All categories",
+    "noProducts": "No products found.",
+    "basePremium": "From",
+    "perMonth": "per month",
+    "keyFeatures": "Key features",
+    "coverage": "Coverage",
+    "howItWorks": "How it works",
+    "step1": "Choose a product",
+    "step2": "Set your coverage",
+    "step3": "Complete enrollment",
+    "applyNow": "Apply now",
+    "relatedProducts": "Related products"
+  },
+  "claims": {
+    "title": "Claims",
+    "subtitle": "Report an accident or check the status of your claim.",
+    "emptyTitle": "No claims yet",
+    "emptyDescription": "Accident reports and claim updates will appear here.",
+    "relatedPolicy": "Policy",
+    "viewDetails": "View details",
+    "edit": "Edit claim",
+    "status": {
+      "DRAFT": "Draft",
+      "RECEIVED": "Received",
+      "UNDER_REVIEW": "Under review",
+      "MORE_DOCUMENTS_NEEDED": "More information needed",
+      "APPROVED": "Approved",
+      "PAID": "Paid",
+      "REJECTED": "Declined"
+    },
+    "type": {
+      "AUTO": "Vehicle accident",
+      "FIRE_EARTHQUAKE": "Fire or earthquake",
+      "TRAVEL": "Travel",
+      "MEDICAL": "Medical",
+      "LIABILITY": "Liability",
+      "OTHER": "Other"
+    },
+    "newClaim": "New claim",
+    "myClaims": "My claims",
+    "status": "Status",
+    "received": "Received",
+    "pendingDocuments": "Pending documents",
+    "underReview": "Under review",
+    "moreDocumentsNeeded": "More documents needed",
+    "approved": "Approved",
+    "paid": "Paid",
+    "rejected": "Rejected",
+    "type": "Type of incident",
+    "typeAuto": "Car accident",
+    "typeFire": "Fire / disaster",
+    "typeMedical": "Medical / injury",
+    "typeLiability": "Liability / injury to others",
+    "dateOfIncident": "Date of incident",
+    "description": "What happened",
+    "descriptionJa": "Description (Japanese)",
+    "descriptionEn": "Description (English)",
+    "notes": "Additional notes",
+    "injuredPeople": "Number of injured people",
+    "damageEstimate": "Estimated damage",
+    "policeReported": "Police report filed",
+    "otherParty": "Other party",
+    "otherPartyName": "Other party name",
+    "otherPartyPhone": "Other party phone",
+    "otherPartyPolicyNumber": "Other party policy number",
+    "location": "Location",
+    "locationJa": "Location (Japanese)",
+    "locationEn": "Location (English)",
+    "documents": "Documents",
+    "uploadDocument": "Upload document",
+    "uploadEvidence": "Upload evidence",
+    "uploadSupporting": "Upload supporting document",
+    "uploadMedical": "Upload medical record",
+    "uploadOther": "Upload other",
+    "viewDocuments": "View uploaded documents",
+    "downloadDocument": "Download",
+    "deleteDocument": "Delete",
+    "noDocuments": "No documents uploaded yet.",
+    "uploadHint": "You can upload photos, medical records, and police reports.",
+    "progress": {
+      "title": "Claim progress",
+      "steps": {
+        "received": "Received",
+        "pendingDocuments": "Documents being reviewed",
+        "underReview": "Under review",
+        "moreDocumentsNeeded": "More documents needed",
+        "approved": "Approved",
+        "paid": "Paid",
+        "rejected": "Rejected"
+      }
+    },
+    "documentsProgress": "Upload documents to move your claim forward.",
+    "reviewProgress": "Our team is reviewing your claim.",
+    "estimatedPayout": "Estimated payout",
+    "payoutDate": "Payout date",
+    "statusHistory": "Status history",
+    "comments": "Comments",
+    "noComments": "No comments yet.",
+    "submit": "Submit claim",
+    "updateClaim": "Update claim",
+    "returnToClaims": "Back to claims"
+  },
+  "claimStatus": {
+    "received": {
+      "ja": "受付済み",
+      "en": "Received"
+    },
+    "pendingDocuments": {
+      "ja": "書類確認中",
+      "en": "Pending documents"
+    },
+    "underReview": {
+      "ja": "審査中",
+      "en": "Under review"
+    },
+    "moreDocumentsNeeded": {
+      "ja": "追加書類必要",
+      "en": "More documents needed"
+    },
+    "approved": {
+      "ja": "承認済み",
+      "en": "Approved"
+    },
+    "paid": {
+      "ja": "支払済み",
+      "en": "Paid"
+    },
+    "rejected": {
+      "ja": "却下",
+      "en": "Rejected"
+    }
+  },
+  "customer": {
+    "title": "My account",
+    "subtitle": "Your policies, claims, and profile.",
+    "welcome": "Welcome back, {name}",
+    "dashboardLabel": "Overview",
+    "billing": "Payments",
+    "supportLink": "Need help? Contact support",
+    "dashboardIntro": "A clear view of your cover and recent activity.",
+    "activePolicies": "Active policies",
+    "openClaims": "Open claims",
+    "reportAccident": "Report an accident",
+    "browseProducts": "Explore coverage",
+    "viewAll": "View all",
+    "noRecentClaims": "No claim activity yet. If something happened, you can report it here.",
+    "noRecentPolicies": "No policies are linked to this account yet.",
+    "recentClaims": {
+      "title": "Recent claims",
+      "subtitle": "The latest updates on your accident reports."
+    },
+    "recentPolicies": {
+      "title": "Your policies",
+      "subtitle": "Your current insurance coverage."
+    },
+    "profile": "Profile",
+    "policies": "My policies",
+    "claims": "My claims",
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "editProfile": "Edit profile",
+    "saveProfile": "Save changes",
+    "saved": "Saved",
+    "noPolicies": "No policies yet.",
+    "noClaims": "No claims yet.",
+    "noNotifications": "No notifications.",
+    "markAllRead": "Mark all read",
+    "unread": "Unread",
+    "policiesTitle": "My policies",
+    "claimsTitle": "My claims",
+    "policyNumber": "Policy number",
+    "status": "Status",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "premium": "Premium",
+    "viewDetails": "View details",
+    "cancelPolicy": "Cancel policy"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin dashboard",
+      "subtitle": "Overview of your business.",
+      "claimsInQueue": "Claims in queue",
+      "activePolicies": "Active policies",
+      "newCustomers": "New customers this month",
+      "pendingDocuments": "Pending documents"
+    },
+    "claimsQueue": {
+      "title": "Claims queue",
+      "subtitle": "Claims awaiting review.",
+      "claimNumber": "Claim number",
+      "customer": "Customer",
+      "status": "Status",
+      "documents": "Documents",
+      "actions": "Actions",
+      "underReview": "Under review",
+      "moreDocsNeeded": "More documents needed",
+      "approve": "Approve",
+      "reject": "Reject",
+      "requestDocs": "Request documents",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "customers": {
+      "title": "Customers",
+      "subtitle": "Manage customer accounts.",
+      "search": "Search customers",
+      "noResults": "No customers found.",
+      "addNote": "Add note",
+      "notes": "Notes",
+      "privateNote": "Private note",
+      "saveNote": "Save note",
+      "deleteNote": "Delete note"
+    },
+    "products": {
+      "title": "Products",
+      "subtitle": "Manage insurance products.",
+      "newProduct": "New product",
+      "editProduct": "Edit product",
+      "status": "Status",
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "news": {
+      "title": "News",
+      "subtitle": "Manage news articles.",
+      "newArticle": "New article",
+      "editArticle": "Edit article"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Manage frequently asked questions.",
+      "newFaq": "New FAQ"
+    },
+    "auditLog": {
+      "title": "Audit log",
+      "subtitle": "Recent admin actions.",
+      "action": "Action",
+      "resource": "Resource",
+      "actor": "Actor",
+      "time": "Time"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "subtitle": "Recent notifications.",
+      "markAllRead": "Mark all read"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Welcome back. Sign in to your account.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Your password",
+      "submit": "Log in",
+      "forgotPassword": "Forgot your password?",
+      "errorInvalid": "The email or password is not correct.",
+      "errorLocked": "Your account is temporarily locked. Please try again later.",
+      "errorSession": "Your session has expired. Please log in again."
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Join SAMPLE INSURANCE JAPAN in a few minutes.",
+      "nameJaLabel": "Full name (Japanese)",
+      "nameEnLabel": "Full name (English)",
+      "furiganaLabel": "Furigana (optional)",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters, one uppercase, one number",
+      "confirmPasswordLabel": "Confirm password",
+      "phoneLabel": "Phone number (optional)",
+      "postalCodeLabel": "Postal code (optional)",
+      "addressLabel": "Address (optional)",
+      "prefectureLabel": "Prefecture (optional)",
+      "cityLabel": "City (optional)",
+      "addressLineLabel": "Address line (optional)",
+      "consentTerms": "I agree to the Terms of Use",
+      "consentPrivacy": "I agree to the Privacy Policy",
+      "submit": "Create account",
+      "successTitle": "Account created",
+      "successMessage": "Please check your email to verify your address.",
+      "backToLogin": "Back to login"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we will send you a link.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "submit": "Send reset link",
+      "successTitle": "Link sent",
+      "successMessage": "Check your inbox for the reset link.",
+      "backToLogin": "Back to login",
+      "error": "Something went wrong. Please try again."
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "Choose a new password for your account.",
+      "newPasswordLabel": "New password",
+      "confirmPasswordLabel": "Confirm new password",
+      "submit": "Save new password",
+      "successTitle": "Password changed",
+      "successMessage": "Your password has been changed. You can now log in.",
+      "goToLogin": "Go to login",
+      "missingTokenTitle": "Missing reset link",
+      "missingTokenMessage": "The reset link is missing or expired. Request a new one.",
+      "requestNewLink": "Request a new link",
+      "backToLogin": "Back to login",
+      "networkError": "A network error occurred. Please try again.",
+      "genericError": "Something went wrong. Please try again."
+    },
+    "newHere": "New to SAMPLE INSURANCE JAPAN?",
+    "registerLink": "Create an account",
+    "loginLink": "Log in",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?"
+  },
+  "layout": {
+    "skipToContent": "Skip to content",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "shared": {
+    "loading": "Loading...",
+    "error": "An error occurred.",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "yes": "Yes",
+    "no": "No",
+    "search": "Search",
+    "noResults": "No results found.",
+    "filter": "Filter",
+    "clear": "Clear"
+  },
+  "errors": {
+    "required": "This field is required.",
+    "invalidEmail": "Please enter a valid email address.",
+    "passwordTooShort": "Password must be at least 8 characters.",
+    "passwordTooLong": "Password is too long.",
+    "passwordNeedsUppercase": "Password must include an uppercase letter.",
+    "passwordNeedsNumber": "Password must include a number.",
+    "passwordMismatch": "The passwords do not match.",
+    "invalidPhone": "Please enter a valid phone number.",
+    "invalidPostalCode": "Please enter a valid postal code.",
+    "networkError": "A network error occurred. Please try again.",
+    "notFound": "The page or item you are looking for was not found.",
+    "unauthorized": "You must be logged in to access this page.",
+    "forbidden": "You do not have permission to access this.",
+    "serverError": "Something went wrong on our end. Please try again later.",
+    "rateLimited": "Too many requests. Please wait a moment and try again.",
+    "invalidInput": "There is a problem with the input. Please check the highlighted fields."
+  },
+  "accident": {
+    "button": "Report an accident",
+    "modalTitle": "Report an accident",
+    "modalSubtitle": "Tell us what happened. We will help you through the process.",
+    "startClaim": "Start a claim",
+    "callUs": "Call us now: 0120-000-000",
+    "emergency": "If this is an emergency, call 110 or 119 first.",
+    "close": "Close"
+  },
+  "settings": {
+    "title": "Account settings",
+    "subtitle": "Manage your profile, password, and notification settings.",
+    "lastSaved": "Last saved:",
+    "tabs": { "profile": "Profile", "password": "Password", "notifications": "Notifications" },
+    "profile": {
+      "form": {
+        "title": "Profile information",
+        "description": "Keep your contact details up to date.",
+        "nameJa": "Full name (Japanese)", "nameJaPlaceholder": "Enter your name in Japanese",
+        "nameEn": "Full name (English)", "nameEnPlaceholder": "Enter your name in English",
+        "phone": "Phone number", "phonePlaceholder": "e.g. 090-1234-5678",
+        "postalCode": "Postal code", "postalCodePlaceholder": "e.g. 100-0001",
+        "addressJa": "Address (Japanese)", "addressJaPlaceholder": "Enter your address in Japanese",
+        "addressEn": "Address (English)", "addressEnPlaceholder": "Enter your address in English"
+      },
+      "save": "Save profile", "saving": "Saving…", "savedTitle": "Profile saved", "savedDescription": "Your profile details have been updated.", "errorTitle": "Could not save profile", "errorDescription": "Please check your details and try again."
+    },
+    "password": {
+      "form": {
+        "title": "Change password", "description": "Choose a strong password you have not used elsewhere.",
+        "currentPassword": "Current password", "currentPasswordPlaceholder": "Enter your current password",
+        "newPassword": "New password", "newPasswordPlaceholder": "Enter a new password", "newPasswordDescription": "Use at least 8 characters, including uppercase, lowercase, a number, and a symbol.",
+        "confirmNewPassword": "Confirm new password", "confirmNewPasswordPlaceholder": "Enter the new password again"
+      },
+      "change": "Change password", "changing": "Changing…", "changedTitle": "Password changed", "changedDescription": "Your password has been updated.", "errorTitle": "Could not change password", "errorDescription": "Check your current password and try again."
+    },
+    "notifications": {
+      "saved": "Preferences saved", "error": "Could not save preferences", "savedMessage": "Your notification preferences have been updated.", "errorMessage": "Please try again.", "disable": "Disabled", "loading": "Saving…", "save": "Save preferences", "savedStatus": "Preferences saved.",
+      "notificationTypes": {
+        "title": "Notification types",
+        "claimStatusUpdates": { "label": "Claim updates", "description": "Receive updates when your claim status changes." },
+        "policyReminders": { "label": "Policy reminders", "description": "Receive reminders about your policy." },
+        "newsletter": { "label": "Newsletter", "description": "Receive insurance news and useful information." },
+        "marketing": { "label": "Product updates", "description": "Receive information about products and services." }
+      }
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Contact form",
+      "description": "Send us your question or request.",
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email address",
+      "emailPlaceholder": "name@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What is this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us how we can help (at least 10 characters)",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+81 90 1234 5678",
+      "policyNumber": "Policy number (optional)",
+      "policyNumberPlaceholder": "Policy number",
+      "claimNumber": "Claim number (optional)",
+      "claimNumberPlaceholder": "Claim number",
+      "consent": "I agree to the privacy notice",
+      "consentDescription": "We will use your information only to respond to your inquiry.",
+      "privacyNote": "Please review your information before sending.",
+      "emailInstead": "Email us instead"
+    },
+    "submit": "Send message",
+    "submitting": "Sending?",
+    "sentTitle": "Message sent",
+    "sentDescription": "We have received your inquiry.",
+    "errorTitle": "Unable to send",
+    "errorDescription": "Please try again in a few minutes."
+  }
+}

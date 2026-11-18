@@ -1,0 +1,39 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Webpack aliases for shared + lib
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": require("path").resolve(__dirname, "src"),
+    };
+    return config;
+  },
+
+  // Allow images from our own domain + R2
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "samplese.japan",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
+  },
+
+  // Redirects / rewrites can be added here later
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/home",
+        permanent: false,
+      },
+    ];
+  },
+};
+
+export default nextConfig;

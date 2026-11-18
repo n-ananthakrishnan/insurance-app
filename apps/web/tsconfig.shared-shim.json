@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sample-insurance/shared": ["src/types/shared-shims.ts"]
+    }
+  },
+  "include": ["src/types/shared-shims.ts"]
+}

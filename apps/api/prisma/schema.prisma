@@ -1,0 +1,450 @@
+// Prisma schema shared by local and hosted PostgreSQL environments.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------- Users & auth ----------
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  passwordHash    String    @map("password_hash")
+  role            String    @default("CUSTOMER")
+  emailVerified   Boolean   @default(false)
+  emailVerifiedAt DateTime? @map("email_verified_at")
+  lockedUntil     DateTime? @map("locked_until")
+  loginAttempts   Int       @default(0) @map("login_attempts")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  deleted         Boolean   @default(false)
+
+  profile             CustomerProfile?
+  refreshTokens       RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+  policies            Policy[]          @relation("customerPolicies")
+  claims              Claim[]           @relation("submittedBy")
+  notes               CustomerNote[]    @relation("notesBy")
+  notifications       Notification[]    @relation("notificationsFor")
+  auditLogs           AuditLog[]        @relation("auditBy")
+  claimDocuments      ClaimDocument[]   @relation("uploadedBy")
+
+  @@map("users")
+}
+
+model CustomerProfile {
+  id                      String   @id @default(uuid())
+  userId                  String   @unique @map("user_id")
+  user                    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nameJa                  String?  @map("name_ja")
+  nameEn                  String?  @map("name_en")
+  furigana                String?  @map("furigana")
+  phone                   String?  @map("phone")
+  postalCode              String?  @map("postal_code")
+  prefecture              String?  @map("prefecture")
+  city                    String?  @map("city")
+  addressLine             String?  @map("address_line")
+  addressJa               String?  @map("address_ja")
+  addressEn               String?  @map("address_en")
+  bankName                String?  @map("bank_name")
+  bankBranch              String?  @map("bank_branch")
+  bankAccountType         String?  @map("bank_account_type")
+  bankAccountNumberMasked String?  @map("bank_account_number_masked")
+  createdAt               DateTime @default(now()) @map("created_at")
+  updatedAt               DateTime @updatedAt @map("updated_at")
+
+  @@map("customer_profiles")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("refresh_tokens")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime @map("expires_at")
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("password_reset_tokens")
+}
+
+// ---------- Products ----------
+
+model ProductCategory {
+  id            String    @id @default(uuid())
+  slug          String    @unique
+  nameJa        String    @map("name_ja")
+  nameEn        String    @map("name_en")
+  descriptionJa String    @map("description_ja")
+  descriptionEn String    @map("description_en")
+  icon          String?
+  active        Boolean   @default(true)
+  displayOrder  Int       @default(0) @map("display_order")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  products      Product[]
+
+  @@map("product_categories")
+}
+
+model Product {
+  id               String          @id @default(uuid())
+  categoryId       String          @map("category_id")
+  category         ProductCategory @relation(fields: [categoryId], references: [id])
+  slug             String          @unique
+  nameJa           String          @map("name_ja")
+  nameEn           String          @map("name_en")
+  taglineJa        String          @default("") @map("tagline_ja")
+  taglineEn        String          @default("") @map("tagline_en")
+  descriptionJa    String          @default("") @map("description_ja")
+  descriptionEn    String          @default("") @map("description_en")
+  whoForJa         String          @default("") @map("who_for_ja")
+  whoForEn         String          @default("") @map("who_for_en")
+  coverageListJa   String          @default("") @map("coverage_list_ja")
+  coverageListEn   String          @default("") @map("coverage_list_en")
+  riderListJa      String?         @map("rider_list_ja")
+  riderListEn      String?         @map("rider_list_en")
+  exclusionJa      String          @default("") @map("exclusion_ja")
+  exclusionEn      String          @default("") @map("exclusion_en")
+  claimHowToJa     String          @default("") @map("claim_how_to_ja")
+  claimHowToEn     String          @default("") @map("claim_how_to_en")
+  priceHintJa      String?         @map("price_hint_ja")
+  priceHintEn      String?         @map("price_hint_en")
+  examplePremiumJa String?         @map("example_premium_ja")
+  examplePremiumEn String?         @map("example_premium_en")
+  brochureUrl      String?         @map("brochure_url")
+  isActive         Boolean         @default(true) @map("is_active")
+  createdAt        DateTime        @default(now()) @map("created_at")
+  updatedAt        DateTime        @updatedAt @map("updated_at")
+
+  coverages      ProductCoverage[]
+  claimHowToDocs ClaimHowToDoc[]
+  policies       Policy[]
+
+  @@index([categoryId])
+  @@map("products")
+}
+
+model ProductCoverage {
+  id            String  @id @default(uuid())
+  productId     String  @map("product_id")
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  labelJa       String  @map("label_ja")
+  labelEn       String  @map("label_en")
+  detailJa      String  @default("") @map("detail_ja")
+  detailEn      String  @default("") @map("detail_en")
+  coverageOrder Int     @default(0) @map("coverage_order")
+
+  @@index([productId])
+  @@map("product_coverages")
+}
+
+model ClaimHowToDoc {
+  id        String  @id @default(uuid())
+  productId String  @map("product_id")
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  docTypeJa String  @map("doc_type_ja")
+  docTypeEn String  @map("doc_type_en")
+  docOrder  Int     @default(0) @map("doc_order")
+
+  @@map("claim_how_to_docs")
+}
+
+// ---------- Policies ----------
+
+model Policy {
+  id            String   @id @default(uuid())
+  customerId    String   @map("customer_id")
+  customer      User     @relation("customerPolicies", fields: [customerId], references: [id], onDelete: Cascade)
+  productId     String   @map("product_id")
+  product       Product  @relation(fields: [productId], references: [id])
+  policyNumber  String   @unique @map("policy_number")
+  status        String   @default("ACTIVE")
+  premium       Float    @default(0) @map("premium")
+  planNameJa    String   @default("") @map("plan_name_ja")
+  planNameEn    String   @default("") @map("plan_name_en")
+  effectiveDate DateTime @map("effective_date")
+  expiryDate    DateTime @map("expiry_date")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  deleted       Boolean  @default(false)
+
+  coverages PolicyCoverage[]
+  claims    Claim[]
+
+  @@index([customerId])
+  @@index([productId])
+  @@map("policies")
+}
+
+model PolicyCoverage {
+  id         String @id @default(uuid())
+  policyId   String @map("policy_id")
+  policy     Policy @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  coverageId String @default("") @map("coverage_id")
+  labelJa    String @map("label_ja")
+  labelEn    String @map("label_en")
+
+  @@map("policy_coverages")
+}
+
+// ---------- Claims ----------
+
+model Claim {
+  id                      String    @id @default(uuid())
+  policyId                String    @map("policy_id")
+  policy                  Policy    @relation(fields: [policyId], references: [id])
+  claimNumber             String    @unique @map("claim_number")
+  claimType               String    @default("OTHER") @map("claim_type")
+  status                  String    @default("DRAFT")
+  accidentDate            DateTime  @map("accident_date")
+  accidentPlaceJa         String    @default("") @map("accident_place_ja")
+  accidentPlaceEn         String    @default("") @map("accident_place_en")
+  descriptionJa           String    @default("") @map("description_ja")
+  descriptionEn           String    @default("") @map("description_en")
+  notesJa                 String?   @map("notes_ja")
+  notesEn                 String?   @map("notes_en")
+  injuredPeople           Int       @default(0) @map("injured_people")
+  propertyDamageEstimateYen Float?  @map("property_damage_estimate_yen")
+  policeReported          Boolean   @default(false) @map("police_reported")
+  otherPartyNameJa        String?   @map("other_party_name_ja")
+  otherPartyNameEn        String?   @map("other_party_name_en")
+  otherPartyPhone         String?   @map("other_party_phone")
+  otherPartyPolicyNumber  String?   @map("other_party_policy_number")
+  accidentLocationJa      String?   @map("accident_location_ja")
+  accidentLocationEn      String?   @map("accident_location_en")
+  estimatedPayoutYen      Float?    @map("estimated_payout_yen")
+  payoutAt                DateTime? @map("payout_at")
+  bankNameMasked          String?   @map("bank_name_masked")
+  bankBranchMasked        String?   @map("bank_branch_masked")
+  bankAccountType         String?   @map("bank_account_type")
+  bankAccountNumberMasked String?   @map("bank_account_number_masked")
+  isDraft                 Boolean   @default(true) @map("is_draft")
+  submittedById           String?   @map("submitted_by_id")
+  submittedBy             User?     @relation("submittedBy", fields: [submittedById], references: [id])
+  submittedAt             DateTime? @map("submitted_at")
+  createdAt               DateTime  @default(now()) @map("created_at")
+  updatedAt               DateTime  @updatedAt @map("updated_at")
+  deleted                 Boolean   @default(false)
+
+  documents     ClaimDocument[]
+  statusHistory ClaimStatusHistory[]
+  comments      ClaimComment[]
+
+  @@index([policyId])
+  @@index([submittedById])
+  @@map("claims")
+}
+
+model ClaimDocument {
+  id           String   @id @default(uuid())
+  claimId      String   @map("claim_id")
+  claim        Claim    @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  fileNameJa   String   @default("") @map("file_name_ja")
+  fileNameEn   String   @default("") @map("file_name_en")
+  fileType     String   @default("") @map("file_type")
+  fileSize     Int      @default(0) @map("file_size")
+  r2Key        String   @default("") @map("r2_key")
+  uploadedById String?  @map("uploaded_by_id")
+  uploadedBy   User?    @relation("uploadedBy", fields: [uploadedById], references: [id], onDelete: SetNull)
+  uploadedAt   DateTime @default(now()) @map("uploaded_at")
+  required     Boolean  @default(false)
+  documentType String?  @map("document_type")
+  deleted      Boolean  @default(false)
+
+  @@index([claimId])
+  @@map("claim_documents")
+}
+
+model ClaimStatusHistory {
+  id          String   @id @default(uuid())
+  claimId     String   @map("claim_id")
+  claim       Claim    @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  fromStatus  String?  @map("from_status")
+  toStatus    String   @map("to_status")
+  commentJa   String?  @map("comment_ja")
+  commentEn   String?  @map("comment_en")
+  changedById String   @default("") @map("changed_by_id")
+  changedAt   DateTime @default(now()) @map("changed_at")
+
+  @@index([claimId])
+  @@map("claim_status_history")
+}
+
+model ClaimComment {
+  id         String   @id @default(uuid())
+  claimId    String   @map("claim_id")
+  claim      Claim    @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  commentJa  String   @default("") @map("comment_ja")
+  commentEn  String   @default("") @map("comment_en")
+  authorId   String   @default("") @map("author_id")
+  authorRole String   @default("") @map("author_role")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@index([claimId])
+  @@map("claim_comments")
+}
+
+// ---------- Content ----------
+
+model NewsCategory {
+  id        String        @id @default(uuid())
+  slug      String        @unique
+  nameJa    String        @map("name_ja")
+  nameEn    String        @map("name_en")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @updatedAt @map("updated_at")
+  articles  NewsArticle[]
+
+  @@map("news_categories")
+}
+
+model NewsArticle {
+  id          String       @id @default(uuid())
+  categoryId  String       @map("category_id")
+  category    NewsCategory @relation(fields: [categoryId], references: [id])
+  slug        String       @unique
+  titleJa     String       @map("title_ja")
+  titleEn     String       @map("title_en")
+  summaryJa   String       @default("") @map("summary_ja")
+  summaryEn   String       @default("") @map("summary_en")
+  bodyJa      String       @default("") @map("body_ja")
+  bodyEn      String       @default("") @map("body_en")
+  categoryTag String       @default("") @map("category_tag")
+  isPinned    Boolean      @default(false) @map("is_pinned")
+  publishedAt DateTime     @default(now()) @map("published_at")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+  deleted     Boolean      @default(false)
+
+  @@index([categoryId])
+  @@map("news_articles")
+}
+
+model FaqCategory {
+  id           String    @id @default(uuid())
+  slug         String    @unique
+  nameJa       String    @map("name_ja")
+  nameEn       String    @map("name_en")
+  displayOrder Int       @default(0) @map("display_order")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  items        FaqItem[]
+
+  @@map("faq_categories")
+}
+
+model FaqItem {
+  id           String      @id @default(uuid())
+  categoryId   String      @map("category_id")
+  category     FaqCategory @relation(fields: [categoryId], references: [id])
+  questionJa   String      @map("question_ja")
+  questionEn   String      @map("question_en")
+  answerJa     String      @map("answer_ja")
+  answerEn     String      @map("answer_en")
+  status       String      @default("DRAFT")
+  sortOrder    Int         @default(0) @map("sort_order")
+  helpfulCount Int         @default(0) @map("helpful_count")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+  deleted      Boolean     @default(false)
+
+  @@index([categoryId])
+  @@map("faq_items")
+}
+
+model ContactMessage {
+  id        String    @id @default(uuid())
+  nameJa    String?   @map("name_ja")
+  nameEn    String?   @map("name_en")
+  email     String?   @map("email")
+  phone     String?   @map("phone")
+  subjectJa String?   @map("subject_ja")
+  subjectEn String?   @map("subject_en")
+  messageJa String    @default("") @map("message_ja")
+  messageEn String    @default("") @map("message_en")
+  status    String    @default("unread")
+  repliedAt DateTime? @map("replied_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@map("contact_messages")
+}
+
+model Notification {
+  id        String    @id @default(uuid())
+  userId    String    @map("user_id")
+  user      User      @relation("notificationsFor", fields: [userId], references: [id], onDelete: Cascade)
+  titleJa   String    @default("") @map("title_ja")
+  titleEn   String    @default("") @map("title_en")
+  bodyJa    String    @default("") @map("body_ja")
+  bodyEn    String    @default("") @map("body_en")
+  type      String    @default("") @map("type")
+  linkJa    String?   @map("link_ja")
+  linkEn    String?   @map("link_en")
+  read      Boolean   @default(false)
+  readAt    DateTime? @map("read_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("notifications")
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  adminId     String   @map("admin_id")
+  admin       User     @relation("auditBy", fields: [adminId], references: [id])
+  action      String
+  targetType  String?  @map("target_type")
+  targetId    String?  @map("target_id")
+  adminNameJa String?  @map("admin_name_ja")
+  adminNameEn String?  @map("admin_name_en")
+  adminEmail  String?  @map("admin_email")
+  detailsJa   String?  @map("details_ja")
+  detailsEn   String?  @map("details_en")
+  ipAddress   String?  @map("ip_address")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([adminId])
+  @@map("audit_logs")
+}
+
+model CustomerNote {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  user      User     @relation("notesBy", fields: [userId], references: [id], onDelete: Cascade)
+  noteJa    String   @default("") @map("note_ja")
+  noteEn    String   @default("") @map("note_en")
+  private   Boolean  @default(false)
+  createdBy String   @default("") @map("created_by")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("customer_notes")
+}
+
+model SiteSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
