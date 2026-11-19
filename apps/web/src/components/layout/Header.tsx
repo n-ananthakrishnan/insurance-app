@@ -90,7 +90,7 @@ export function Header() {
 
             <div className="flex flex-col gap-1">
               <LanguageToggle />
-              <MobileNavCTA />
+              <MobileNavCTA onLogout={() => setMenuOpen(false)} />
             </div>
           </nav>
         </div>
@@ -147,26 +147,30 @@ function MobileNavLink({
 }
 
 function NavCTA() {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
   const t = useTranslations("nav");
-  const pathname = usePathname();
 
   if (loading) return null;
-
-  if (pathname.startsWith("/customer") || pathname.startsWith("/admin")) {
-    return null; // header is rendered inside those layouts too
-  }
 
   if (user) {
     const isCustomer = user.role === "CUSTOMER";
     return (
-      <Link
-        href={isCustomer ? "/customer" : "/admin"}
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-navy-200 text-sm font-medium text-navy-700 hover:bg-navy-50 transition"
-      >
-        {isCustomer ? <User className="w-4 h-4" /> : <Shield className="w-4 h-4" />}
-        {isCustomer ? t("customerArea") : t("admin")}
-      </Link>
+      <div className="flex items-center gap-2">
+        <Link
+          href={isCustomer ? "/customer" : "/admin"}
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-navy-200 text-sm font-medium text-navy-700 hover:bg-navy-50 transition"
+        >
+          {isCustomer ? <User className="w-4 h-4" /> : <Shield className="w-4 h-4" />}
+          {isCustomer ? t("customerArea") : t("admin")}
+        </Link>
+        <button
+          type="button"
+          onClick={() => void logout()}
+          className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+        >
+          {t("logout")}
+        </button>
+      </div>
     );
   }
 
@@ -181,8 +185,8 @@ function NavCTA() {
   );
 }
 
-function MobileNavCTA() {
-  const { user, loading } = useAuth();
+function MobileNavCTA({ onLogout }: { onLogout: () => void }) {
+  const { user, loading, logout } = useAuth();
   const t = useTranslations("nav");
 
   if (loading) return null;
@@ -192,12 +196,24 @@ function MobileNavCTA() {
     const label = isCustomer ? t("customerArea") : t("admin");
     const href = isCustomer ? "/customer" : "/admin";
     return (
-      <Link
-        href={href}
-        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition mt-2"
-      >
-        {label}
-      </Link>
+      <div className="flex flex-col gap-2 mt-2">
+        <Link
+          href={href}
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition"
+        >
+          {label}
+        </Link>
+        <button
+          type="button"
+          onClick={() => {
+            onLogout();
+            void logout();
+          }}
+          className="inline-flex h-9 items-center justify-center rounded-lg border border-slate-200 px-4 text-sm font-medium text-slate-700 hover:bg-slate-50"
+        >
+          {t("logout")}
+        </button>
+      </div>
     );
   }
 

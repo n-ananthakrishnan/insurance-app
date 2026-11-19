@@ -4,9 +4,21 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 async function main() {
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+  const customerPassword = process.env.SEED_CUSTOMER_PASSWORD;
+  if (!adminPassword || adminPassword.length < 12) {
+    throw new Error("Set SEED_ADMIN_PASSWORD to a unique password of at least 12 characters before seeding.");
+  }
+  if (!customerPassword || customerPassword.length < 12) {
+    throw new Error("Set SEED_CUSTOMER_PASSWORD to a unique password of at least 12 characters before seeding.");
+  }
+  if (adminPassword === customerPassword) {
+    throw new Error("Use different passwords for the seeded admin and customer accounts.");
+  }
+
   const [customerHash, adminHash] = await Promise.all([
-    bcrypt.hash("Password1", 10),
-    bcrypt.hash("AdminPass1", 10),
+    bcrypt.hash(customerPassword, 12),
+    bcrypt.hash(adminPassword, 12),
   ]);
   const customer = await prisma.user.upsert({
     where: { email: "customer@example.com" },
@@ -80,8 +92,8 @@ async function main() {
   }
 
   console.log("Seed complete.");
-  console.log("Customer login: customer@example.com / Password1");
-  console.log("Admin login: admin@example.com / AdminPass1");
+  console.log("Customer account: customer@example.com (password supplied via SEED_CUSTOMER_PASSWORD)");
+  console.log("Admin account: admin@example.com (password supplied via SEED_ADMIN_PASSWORD)");
   console.log(`Demo policy ID: ${policy.id} (number ${policy.policyNumber})`);
 }
 
